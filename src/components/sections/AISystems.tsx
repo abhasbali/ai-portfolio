@@ -82,7 +82,7 @@ export default function AISystems() {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="flex items-center gap-2 text-cyan-400 font-mono mb-4 text-sm"
                     >
                         <span className="w-8 h-px bg-cyan-500/50" />
@@ -92,7 +92,7 @@ export default function AISystems() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
                     >
                         AI Systems <span className="text-cyan-400">Division</span>
@@ -101,7 +101,7 @@ export default function AISystems() {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ delay: 0.1 }}
                         className="text-slate-400 max-w-2xl text-lg"
                     >
@@ -115,7 +115,7 @@ export default function AISystems() {
                             key={project.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             transition={{ delay: index * 0.1 }}
                             className={`glass-card group border ${expandedId === project.id ? "border-cyan-500/50 shadow-[0_0_30px_rgba(0,243,255,0.15)]" : "border-white/10 hover:border-white/30"} overflow-hidden transition-all duration-300`}
                         >

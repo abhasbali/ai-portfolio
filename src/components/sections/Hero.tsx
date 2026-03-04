@@ -49,7 +49,8 @@ export default function Hero() {
             <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8 }}
                     className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-400 text-sm font-mono mb-8 backdrop-blur-sm"
                 >
@@ -59,7 +60,8 @@ export default function Hero() {
 
                 <motion.h1
                     initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6"
                 >
@@ -78,7 +80,8 @@ export default function Hero() {
 
                 <motion.p
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8, delay: 2.5 }}
                     className="max-w-2xl text-slate-400 text-lg md:text-xl mb-12"
                 >
@@ -87,7 +90,8 @@ export default function Hero() {
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8, delay: 2.8 }}
                     className="flex flex-wrap items-center justify-center gap-4"
                 >

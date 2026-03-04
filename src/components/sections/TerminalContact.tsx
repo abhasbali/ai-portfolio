@@ -71,7 +71,7 @@ export default function TerminalContact() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="flex items-center gap-2 text-green-400 font-mono mb-4 text-sm bg-green-950/30 px-4 py-1.5 rounded-full border border-green-500/20"
                     >
                         <Terminal size={16} />
@@ -81,7 +81,7 @@ export default function TerminalContact() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
                     >
                         Initiate <span className="text-green-400">Connection</span>
@@ -91,7 +91,7 @@ export default function TerminalContact() {
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, amount: 0.2 }}
                     className="max-w-3xl mx-auto"
                 >
                     <div className="rounded-xl overflow-hidden border border-slate-700 bg-[#0a0f24] shadow-2xl shadow-green-900/10">
@@ -140,7 +140,6 @@ export default function TerminalContact() {
                                             if (e.key === "Enter") handleCommand(inputVal);
                                         }}
                                         className="flex-1 bg-transparent outline-none border-none text-white caret-transparent"
-                                        autoFocus
                                         spellCheck={false}
                                         autoComplete="off"
                                     />

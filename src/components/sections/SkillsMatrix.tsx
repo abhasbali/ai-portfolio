@@ -76,7 +76,7 @@ export default function SkillsMatrix() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="flex items-center gap-2 text-cyan-400 font-mono mb-4 text-sm bg-cyan-950/30 px-4 py-1.5 rounded-full border border-cyan-500/20"
                     >
                         <Target size={16} />
@@ -86,7 +86,7 @@ export default function SkillsMatrix() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
                     >
                         System <span className="text-cyan-400">Expertise</span>
@@ -98,7 +98,7 @@ export default function SkillsMatrix() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.8 }}
                         className="w-full lg:w-1/2 aspect-square max-w-[500px] relative glass-card p-4 flex items-center justify-center border-cyan-500/20 shadow-[0_0_30px_rgba(0,243,255,0.05)]"
                     >
@@ -126,7 +126,7 @@ export default function SkillsMatrix() {
                                 key={idx}
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false, amount: 0.2 }}
                                 transition={{ delay: idx * 0.1 }}
                                 className="flex flex-col gap-3"
                             >
@@ -142,7 +142,7 @@ export default function SkillsMatrix() {
                                                 <motion.div
                                                     initial={{ width: 0 }}
                                                     whileInView={{ width: `${skill.level}%` }}
-                                                    viewport={{ once: true }}
+                                                    viewport={{ once: false, amount: 0.2 }}
                                                     transition={{ duration: 1, delay: 0.2 + (sIdx * 0.1) }}
                                                     className={`h-full ${category.color} shadow-[0_0_10px_currentColor]`}
                                                 />

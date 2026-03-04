@@ -31,7 +31,7 @@ export default function MLSystems() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="flex items-center gap-2 text-purple-400 font-mono mb-4 text-sm bg-purple-950/30 px-4 py-1.5 rounded-full border border-purple-500/20"
                     >
                         <Activity size={16} />
@@ -41,7 +41,7 @@ export default function MLSystems() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
                     >
                         Applied <span className="text-purple-400">Intelligence</span>
@@ -50,7 +50,7 @@ export default function MLSystems() {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ delay: 0.1 }}
                         className="text-slate-400 max-w-2xl text-lg"
                     >
@@ -64,7 +64,7 @@ export default function MLSystems() {
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="glass-card border border-white/10 overflow-hidden flex flex-col group"
                     >
                         <div className="p-6 md:p-8 flex flex-col h-full bg-gradient-to-b from-white/5 to-transparent">
@@ -126,7 +126,7 @@ export default function MLSystems() {
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             transition={{ delay: 0.1 }}
                             className="glass-card border border-white/10 p-6 flex flex-col md:flex-row gap-6 group hover:border-purple-500/50 transition-colors"
                         >
@@ -154,7 +154,7 @@ export default function MLSystems() {
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             transition={{ delay: 0.2 }}
                             className="glass-card flex-grow border border-white/10 p-6 flex flex-col group hover:border-green-500/50 transition-colors"
                         >
@@ -183,7 +183,7 @@ export default function MLSystems() {
                                         <motion.div
                                             initial={{ height: 0 }}
                                             whileInView={{ height: `${data.value * 100}%` }}
-                                            viewport={{ once: true }}
+                                            viewport={{ once: false, amount: 0.2 }}
                                             transition={{ delay: 0.5 + (i * 0.1), duration: 0.8 }}
                                             className="w-full rounded-t-sm"
                                             style={{ backgroundColor: data.fill, opacity: 0.8 }}

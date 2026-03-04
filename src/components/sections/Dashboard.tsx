@@ -55,7 +55,7 @@ export default function Dashboard() {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="flex items-center gap-2 text-cyan-400 font-mono mb-4 text-sm"
                     >
                         <ServerCog size={16} />
@@ -66,7 +66,7 @@ export default function Dashboard() {
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             className="text-4xl md:text-5xl font-bold tracking-tight text-white"
                         >
                             System <span className="text-cyan-400">Activity</span>
@@ -75,7 +75,7 @@ export default function Dashboard() {
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             className="flex items-center gap-3 px-4 py-2 bg-black/50 border border-white/10 rounded-lg font-mono text-sm inline-flex w-fit"
                         >
                             <div className="flex items-center gap-2 text-slate-400">
@@ -98,7 +98,7 @@ export default function Dashboard() {
                                 key={idx}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false, amount: 0.2 }}
                                 transition={{ delay: idx * 0.1 }}
                                 className={`glass-card p-6 border ${metric.border} flex flex-col gap-4 group relative overflow-hidden`}
                             >
@@ -122,7 +122,7 @@ export default function Dashboard() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ delay: 0.4 }}
                     className="glass-card p-6 md:p-8 border border-white/10"
                 >

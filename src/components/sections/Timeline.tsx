@@ -78,7 +78,7 @@ export default function Timeline() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="flex items-center gap-2 text-slate-300 font-mono mb-4 text-sm bg-white/5 px-4 py-1.5 rounded-full border border-white/10"
                     >
                         <Waypoints size={16} />
@@ -88,7 +88,7 @@ export default function Timeline() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         className="text-4xl md:text-5xl font-bold tracking-tight text-white"
                     >
                         Achievements & <span className="text-cyan-400">Certifications</span>
@@ -108,7 +108,7 @@ export default function Timeline() {
                                     key={idx}
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: false, amount: 0.2 }}
                                     transition={{ delay: idx * 0.1 }}
                                     className={`relative flex items-center justify-between md:justify-normal w-full ${isEven ? "md:flex-row-reverse" : ""}`}
                                 >
