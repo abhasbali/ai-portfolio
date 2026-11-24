@@ -1,40 +1,145 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --color-cyan-neon: #00f3ff;
-  --color-purple-neon: #bc13fe;
-  --color-blue-deep: #0a0f24;
-  --color-gray-glass: rgba(255, 255, 255, 0.05);
-  --color-gray-glass-hover: rgba(255, 255, 255, 0.1);
+  --font-serif: var(--nf-serif), "Times New Roman", serif;
+  --font-sans: var(--nf-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), ui-monospace, monospace;
+
+  --color-paper: #efebe2;
+  --color-paper-2: #e6e1d5;
+  --color-ink: #161513;
+  --color-ink-2: #55524b;
+  --color-ink-3: #8a857a;
+  --color-rule: #cbc5b7;
+  --color-copper: #b8471a;
+  --color-mask: #1f4d3a;
 }
 
-@layer base {
-  :root {
-    --background: #030712;
-    --foreground: #e2e8f0;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* drafting-paper grid, barely there */
+  background-image:
+    linear-gradient(to right, rgb(22 21 19 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(22 21 19 / 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-@layer utilities {
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)];
-  }
-  
-  .neon-glow-cyan {
-    @apply shadow-[0_0_15px_rgba(0,243,255,0.5)];
-  }
+::selection {
+  background: var(--color-copper);
+  color: var(--color-paper);
+}
 
-  .neon-glow-purple {
-    @apply shadow-[0_0_15px_rgba(188,19,254,0.5)];
-  }
+:focus-visible {
+  outline: 1.5px solid var(--color-copper);
+  outline-offset: 3px;
+}
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500;
+/* paper grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .4  0 0 0 0 .38  0 0 0 0 .33  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.cursor {
+  display: none;
+}
+.has-cursor .cursor {
+  display: block;
+}
+
+@media (pointer: fine) {
+  .has-cursor,
+  .has-cursor a,
+  .has-cursor button {
+    cursor: none;
+  }
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+
+/* underline that draws in from the left */
+.ink-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ink-link:hover,
+.ink-link:focus-visible {
+  background-size: 100% 1px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 48s linear infinite;
+}
+.marquee-wrap:hover .marquee {
+  animation-play-state: paused;
+}
+
+[data-reveal] {
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* hero entrance: pure CSS, runs without JS */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+.intro {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+.blink {
+  animation: blink 1.6s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee,
+  .intro,
+  .blink {
+    animation: none;
   }
 }
