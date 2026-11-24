@@ -2,12 +2,14 @@
 
 Personal site of Abhas Bali, AI engineer at Havells CRI. Live at https://ai-portfolio-sage-seven.vercel.app
 
-Designed as an engineering datasheet: numbered sheets, signal-path block diagrams for each
-project, and a 16-pin IC pin-out for skills.
+Bold editorial layout: velocity-reactive tickers, scroll-scrubbed hero and manifesto, a pinned
+horizontal builds rail, before/after counters and signal-path diagrams. All motion is tied to
+scroll position, so it plays forward going down and rewinds going up; reduced-motion is respected.
 
 ## Stack
-Next.js 16 (App Router, static export of `/`), Tailwind CSS 4, framer-motion (diagram wiring only).
-Type: Instrument Serif, IBM Plex Sans, IBM Plex Mono.
+Next.js 16 (App Router, static `/`), Tailwind CSS 4, framer-motion.
+Type: Big Shoulders (display), Geist (text), Geist Mono (labels).
+Colour roles: sun = action/highlight, copper = data, mint = success, on paper/ink neutrals.
 
 ## Editing content
 Everything on the page comes from `src/content/data.ts`. Update that file, not the components.

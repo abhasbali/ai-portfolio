@@ -39,7 +39,7 @@ export default function Flow({ columns, title }: { columns: FlowNode[][]; title:
     <motion.svg
       initial={reduce ? false : "off"}
       whileInView="on"
-      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+      viewport={{ once: false, margin: "0px 0px -10% 0px" }}
       viewBox={`0 0 ${W} ${H}`}
       className="h-auto w-full"
       role="img" aria-label={`${title}: ${columns.map((c) => c.map((n) => n.label).join(" / ")).join(" → ")}`}>
@@ -78,7 +78,7 @@ export default function Flow({ columns, title }: { columns: FlowNode[][]; title:
                 y={p.y + BOX_H / 2 + 4}
                 textAnchor="middle"
                 fontFamily="var(--font-mono)"
-                fontSize={11.5}
+                fontSize={12.5}
                 fill={n.key ? "var(--color-paper)" : "var(--color-ink)"}
               >
                 {n.label}

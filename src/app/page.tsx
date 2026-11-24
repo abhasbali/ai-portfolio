@@ -1,26 +1,23 @@
-import Cursor from "@/components/Cursor";
-import Nav from "@/components/Nav";
+import Nav, { Ticker } from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import Work from "@/components/Work";
-import Research from "@/components/Research";
-import Builds from "@/components/Builds";
-import Spec from "@/components/Spec";
-import Record from "@/components/Record";
+import { Manifesto, Work, Numbers, Builds, Band, Research, Stack, Process, Record } from "@/components/Sections";
 import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
     <>
-      <Cursor />
+      <Ticker />
       <Nav />
       <main>
         <Hero />
-        <Marquee />
+        <Manifesto />
         <Work />
-        <Research />
+        <Numbers />
         <Builds />
-        <Spec />
+        <Band />
+        <Research />
+        <Stack />
+        <Process />
         <Record />
         <Contact />
       </main>

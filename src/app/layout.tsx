@@ -1,24 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Big_Shoulders, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const serif = Instrument_Serif({
-  variable: "--nf-serif",
+// Big Shoulders: industrial signage face drawn on a grid; its optical-size
+// axis keeps huge headlines tight. Geist + Geist Mono for reading and labels.
+const display = Big_Shoulders({
+  variable: "--nf-display",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  axes: ["opsz"],
 });
 
-const sans = IBM_Plex_Sans({
+const sans = Geist({
   variable: "--nf-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
-const mono = IBM_Plex_Mono({
+const mono = Geist_Mono({
   variable: "--nf-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -34,12 +33,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#efebe2",
+  themeColor: "#f4eee4",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   );

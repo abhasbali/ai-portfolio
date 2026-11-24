@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Fades content up as it scrolls into view. Content is visible in the
- * server HTML; it is only hidden once JS confirms it is below the fold,
- * so a slow or failed script never leaves the page blank.
+ * Bidirectional reveal: slides up when entering from below, slides down when
+ * entering from above, and hides again on the way out so it replays.
+ * Content is visible in server HTML; JS only hides what is off-screen.
  */
 export default function Reveal({
   children,
@@ -21,23 +21,19 @@ export default function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
-    el.dataset.reveal = "hidden";
     const io = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) {
-          el.dataset.reveal = "shown";
-          io.disconnect();
-        }
+        if (e.isIntersecting) el.dataset.reveal = "shown";
+        else el.dataset.reveal = e.boundingClientRect.top > 0 ? "below" : "above";
       },
-      { rootMargin: "0px 0px -10% 0px" },
+      { rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
   return (
-    <div ref={ref} className={className} style={delay ? { transitionDelay: `${delay}s`, animationDelay: `${delay}s` } : undefined}>
+    <div ref={ref} className={className} style={delay ? { transitionDelay: `${delay}s` } : undefined}>
       {children}
     </div>
   );

@@ -186,17 +186,46 @@ export const builds: Build[] = [
   },
 ];
 
-// Pin-out: what goes into the chip (left) and what comes out (right).
-export const pinsIn = ["Python", "LLMs", "MCP", "RAG / Graph-RAG", "LangChain", "FastAPI", "React / Next.js", "Docker"];
-export const pinsOut = ["CAD agents", "PLM search", "Compliance Q&A", "SQL agents", "Multi-agent systems", "Local inference", "Full-stack apps", "Research"];
-
-export const spec: { param: string; value: string }[] = [
-  { param: "Languages", value: "Python, Java, C++, C, JavaScript" },
-  { param: "AI / ML", value: "LLMs, MCP, RAG, Graph-RAG, multi-agent systems, NLP, CNN, LSTM, LangChain, Ollama, TensorFlow, OpenCV, scikit-learn, HF Transformers" },
-  { param: "Engineering & cloud", value: "Altium Designer, PTC Windchill, Azure AI Foundry, AWS, Docker, Firebase, Vercel, Linux, CI/CD" },
-  { param: "Web & APIs", value: "React, Next.js, Node.js, Express, Django, Flask, FastAPI, Tailwind, REST" },
-  { param: "Data", value: "PostgreSQL, MySQL, MongoDB, SQLite, Pinecone" },
+export const stack = [
+  {
+    title: "Agents & LLMs",
+    body: "Agents that call real tools, retrieval that cites its sources, and local models when the data can't leave the building.",
+    tags: ["LLMs", "MCP", "RAG", "Graph-RAG", "Multi-agent", "LangChain", "Ollama", "HF Transformers"],
+  },
+  {
+    title: "Engineering tools",
+    body: "Where the agents actually live: EDA, PLM and the cloud they run on.",
+    tags: ["Altium Designer", "PTC Windchill", "Azure AI Foundry", "AWS", "Docker", "Linux", "CI/CD"],
+  },
+  {
+    title: "Classic ML",
+    body: "Vision and sequence models, trained, evaluated and shipped behind an API.",
+    tags: ["TensorFlow", "CNN", "LSTM", "OpenCV", "scikit-learn", "NLP"],
+  },
+  {
+    title: "Product & data",
+    body: "The full-stack around the model: APIs, front ends and the databases behind them.",
+    tags: ["Python", "FastAPI", "Flask", "Django", "React", "Next.js", "Node.js", "PostgreSQL", "MongoDB", "Pinecone"],
+  },
 ];
+
+// Before -> after, all from résumé numbers.
+export const stats: { label: string; before: string; after: number; prefix?: string; suffix?: string; note?: string; dec?: number }[] = [
+  { label: "Résumé feedback turnaround", before: "hours", after: 10, prefix: "<", suffix: "s", note: "AI Career Coach" },
+  { label: "Analytical report creation", before: "hours", after: 2, prefix: "<", suffix: "min", note: "AI Report Generator" },
+  { label: "Inference cost per report", before: "$0.10", after: 0, prefix: "$", note: "local Qwen vs paid API" },
+  { label: "7B model latency", before: "1×", after: 3, suffix: "× faster", note: "quantization research" },
+  { label: "PLM AI vendor spend", before: "buy", after: 33, prefix: "₹", suffix: "L saved", note: "Windchill AI, Havells" },
+];
+
+export const process = [
+  { title: "Sit with engineers", body: "Start from the workflow, not the model. What eats their week, and what does a right answer look like?" },
+  { title: "Wire the tools", body: "Expose Altium, Windchill or the database through MCP and APIs, so the agent acts instead of guessing." },
+  { title: "Ground the answers", body: "Hybrid retrieval, rules and reranking, so every output points back to a part, a clause or a check." },
+  { title: "Check before it ships", body: "ERC/DRC, query guardrails and evidence trails. Engineers sign off on it, not on vibes." },
+];
+
+export const ticker = ["Wiring LLMs into CAD", "Building MCP bridges", "Retrieving standards", "Shipping agents", "Quantizing 7B models", "Graph-RAG", "Hybrid retrieval", "ERC / DRC in the loop"];
 
 export const achievements = [
   { what: "Winner", where: "Samsung Innovation Campus Hackathon" },
